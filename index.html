@@ -1848,7 +1848,7 @@
           </div>
 
           <!-- Slide 5 - Cloud Security -->
-          <div class="swiper-slide bottom-staggers">
+          <div class="swiper-slide bottom-stagger">
             <div class="simple-slide-card">
               <img src="images/swiper5.jpg" alt="Cloud Security" class="card-image">
               <div class="card-content">
@@ -2146,22 +2146,22 @@
 
   <script>
     // Mobile menu scroll lock
-    document.addEventListener('DOMContentLoaded', function () {
-      const navbarToggler = document.querySelector('.navbar-toggler');
-      const navbarCollapse = document.querySelector('#navbarMain');
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   const navbarToggler = document.querySelector('.navbar-toggler');
+    //   const navbarCollapse = document.querySelector('#navbarMain');
 
-      if (navbarToggler && navbarCollapse) {
-        navbarToggler.addEventListener('click', function () {
-          setTimeout(function () {
-            if (navbarCollapse.classList.contains('show')) {
-              document.body.classList.add('menu-open');
-            } else {
-              document.body.classList.remove('menu-open');
-            }
-          }, 10);
-        });
-      }
-    });
+    //   if (navbarToggler && navbarCollapse) {
+    //     navbarToggler.addEventListener('click', function () {
+    //       setTimeout(function () {
+    //         if (navbarCollapse.classList.contains('show')) {
+    //           document.body.classList.add('menu-open');
+    //         } else {
+    //           document.body.classList.remove('menu-open');
+    //         }
+    //       }, 10);
+    //     });
+    //   }
+    // });
 
     // Accordion Toggle Function
     function toggleAccordion(element) {
@@ -2190,6 +2190,8 @@
         slidesPerView: 1,
         spaceBetween: 24,
         loop: true,
+        loopAdditionalSlides: 5, // ✅ IMPORTANT
+        loopFillGroupWithBlank: true, // ✅ stability
 
         // ❌ AUTOPLAY OFF (GLOBAL)
         autoplay: false,
@@ -2205,15 +2207,14 @@
         },
 
         breakpoints: {
-          640: { slidesPerView: 1.2, spaceBetween: 20 },
-          768: { slidesPerView: 2, spaceBetween: 24 },
-          1024: { slidesPerView: 3, spaceBetween: 30 },
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         },
 
         ...config
       });
     }
-
     // =========================
     // Featured Swiper
     // =========================
