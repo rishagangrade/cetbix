@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cetbix | Horizontal Scrolling Integrations</title>
+
+  <!-- Bootstrap 5 CSS + JS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Swiper CSS for Slider -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- CSS FILE -->
+  <link rel="stylesheet" href="css/styles.css">
+
+
+
+  <style>
+    :root {
+      --brand-red: #c62828;
+      --brand-red-dark: #b71c1c;
+      --brand-red-soft: #e53935;
+      --brand-red-light: #ffebee;
+      --text-muted: #64748b;
+      --text-dark: #1e293b;
+    }
+
+    /* ========== LOGIN SECTION (LIGHT & CLEAN) ========== */
+    .login-section {
+      padding: 4rem 0;
+      background: #f5f7fc;
+    }
+
+    .login-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.08);
+      height: 100%;
+      transition: all 0.2s ease;
+      border: 1px solid #eef2f6;
+    }
+
+    .login-card:hover {
+      box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.12);
+    }
+
+    .benefits-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      height: 100%;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Badges */
+    .badge-secure {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #c62828 0%, #e53935 100%);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-exclusive {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(198, 40, 40, 0.08);
+      color: #c62828;
+      padding: 0.25rem 1rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Typography */
+    .login-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+
+    .login-subtitle {
+      color: #64748b;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .benefits-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: #1e293b;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #334155;
+    }
+
+    .form-label i {
+      color: #c62828;
+      margin-right: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.2rem;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #c62828;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.08);
+    }
+
+    /* Checkbox & Links */
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.25rem 0 1.75rem;
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    .checkbox-wrapper input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #c62828;
+    }
+
+    .forgot-link {
+      font-size: 0.85rem;
+      color: #c62828;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Buttons */
+    .btn-signin {
+      background: linear-gradient(135deg, #c62828 0%, #e53935 100%);
+      width: 100%;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-signin:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(198, 40, 40, 0.25);
+    }
+
+    .btn-azure {
+      background: transparent;
+      border: 1.5px solid #c62828;
+      width: 100%;
+      padding: 0.85rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #c62828;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-azure:hover {
+      background: rgba(198, 40, 40, 0.05);
+      border-color: #b71c1c;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #94a3b8;
+      margin: 1.5rem 0;
+      font-size: 0.75rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .divider::before {
+      margin-right: 1rem;
+    }
+
+    .divider::after {
+      margin-left: 1rem;
+    }
+
+    /* Signup Prompt */
+    .signup-prompt {
+      margin-top: 1.75rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .signup-prompt a {
+      color: #c62828;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .signup-prompt a:hover {
+      text-decoration: underline;
+    }
+
+    .signup-note {
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 0.25rem;
+    }
+
+    /* Feature List */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.6rem 0;
+      font-size: 0.9rem;
+      color: #334155;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .feature-item:last-child {
+      border-bottom: none;
+    }
+
+    .feature-item i {
+      width: 24px;
+      color: #c62828;
+      font-size: 1rem;
+    }
+
+    /* Highlight Card */
+    .highlight-card {
+      background: #fefaf5;
+      border-radius: 1rem;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-left: 3px solid #c62828;
+    }
+
+    .trust-badge {
+      background: #f8fafc;
+      border-radius: 0.75rem;
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .trust-badge i {
+      color: #c62828;
+      margin-right: 4px;
+    }
+
+    @media (max-width: 768px) {
+
+      .login-card,
+      .benefits-card {
+        padding: 1.5rem;
+      }
+
+      .login-title {
+        font-size: 1.5rem;
+      }
+
+      .benefits-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="premium-header">
+    <div class="topbar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-12 text-md-start text-center mb-2 mb-md-0">
+            <span><i class="fas fa-chart-line me-2"></i>Experts in innovation strategies</span>
+          </div>
+          <div class="col-md-6 col-12 text-md-end text-center">
+            <div class="d-flex justify-content-md-end justify-content-center align-items-center gap-3 flex-wrap">
+              <a href="#"><i class="fas fa-download me-1"></i>Downloads</a>
+              <a href="#"><i class="fas fa-envelope me-1"></i>Contact</a>
+              <div class="dropdown lang-dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                  <i class="fas fa-globe me-1"></i>English
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">English</a></li>
+                  <li><a class="dropdown-item" href="#">Deutsch</a></li>
+                  <li><a class="dropdown-item" href="#">Français</a></li>
+                  <li><a class="dropdown-item" href="#">Español</a></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="techsec-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                  Techsec
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Account</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand p-0" href="#">
+          <img src="images/CetbixAsset.png" alt="Cetbix Logo" style="height: 40px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item mega-menu-vertical">
+              <a class="nav-link" href="#" id="productsLink">
+                Products <i class="fas fa-chevron-down"></i>
+              </a>
+
+              <div class="mega-dropdown-vertical" id="megaDropdown">
+                <button class="close-mega-menu d-lg-none" id="closeMegaMenu">
+                  <i class="fas fa-times"></i>
+                </button>
+                <div class="mega-inner">
+                  <div class="vertical-tabs" id="verticalTabs">
+                    <button class="tab-vertical" data-tab="tab1">
+                      <span>Information Security</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab2">
+                      <span>Quality Management System</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab3">
+                      <span>IT/OT/Cloud Solution</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab4">
+                      <span>Customer Services</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab5">
+                      <span>Identity System</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab6">
+                      <span>OT/SCADA/Labs</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab7">
+                      <span>Cetbix Assure360 AI</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="tab-content-area" id="tabContentArea">
+                    <button class="back-button" id="backButton">
+                      <i class="fas fa-arrow-left"></i>
+                      <span>Back to Categories</span>
+                    </button>
+
+                    <div class="tab-pane-vertical" id="tab-tab1">
+                      <div class="section-heading">Information Security</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-chart-line"></i> GRC Automation</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-shield-alt"></i> Cetbix ISO27001 ISMS
+                            Software</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-robot"></i> Third-Party Cyber Security
+                            Due-Diligence</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-cloud-upload-alt"></i> Cetbix TISAX
+                            Automation</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-chart-bar"></i> Supplier Information
+                            Management Software</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-lock"></i> Risk Assessment & Management</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab2">
+                      <div class="section-heading">Quality Management System</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Quality Management System (QMS)
+                            (CetbixDoc)</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> IATF 16949 Automotive QMS</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab3">
+                      <div class="section-heading">IT/OT/Cloud Solution</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> Cetbix Sentinel</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-key"></i> CLEH System Monitoring</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-cubes"></i> Cetbix Windows Manager For
+                            Professionals</a></div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab4">
+                      <div class="section-heading">Customer Services</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> SaaS Customer Complaint
+                            Management</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-key"></i> Cetbix Learning Management
+                            System</a></div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab5">
+                      <div class="section-heading">Identity System</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> Access Control Management
+                            System</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-key"></i> Fleet Management System</a></div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab6">
+                      <div class="section-heading">OT/SCADA/Labs</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> High Level Risk Assessment
+                            Management System (HLRAMS)</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-key"></i> OT/SCADA/Labs Asset Inventory</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab7">
+                      <div class="section-heading">Cetbix Assure360 AI</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> Cetbix Audit Intelligence
+                            Suite</a></div>
+                        <div class="link-item"><a href="#"><i class="fas fa-key"></i> Cetbix Classify360</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item mega-menu-vertical">
+              <a class="nav-link" href="#" id="productsLink">
+                Partners <i class="fas fa-chevron-down"></i>
+              </a>
+
+              <div class="mega-dropdown-vertical" id="megaDropdown">
+                <button class="close-mega-menu d-lg-none" id="closeMegaMenu">
+                  <i class="fas fa-times"></i>
+                </button>
+                <div class="mega-inner">
+                  <div class="vertical-tabs" id="verticalTabs">
+                    <button class="tab-vertical" data-tab="tab1">
+                      <span>Affiliate programs</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab2">
+                      <span>Partner with Cetbix</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="tab-content-area" id="tabContentArea">
+                    <button class="back-button" id="backButton">
+                      <i class="fas fa-arrow-left"></i>
+                      <span>Back to Categories</span>
+                    </button>
+
+                    <div class="tab-pane-vertical" id="tab-tab1">
+                      <div class="section-heading">Affiliate programs</div>
+                      <div class="links-grid">
+                        <div class="link-item">
+                          <a href="javascript:void(0)"><i class="fas fa-chart-line"></i> No Content Available</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab2">
+                      <div class="section-heading">Partner with Cetbix</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Become a Partner</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item mega-menu-vertical">
+              <a class="nav-link" href="#" id="productsLink">
+                Company <i class="fas fa-chevron-down"></i>
+              </a>
+
+              <div class="mega-dropdown-vertical" id="megaDropdown">
+                <button class="close-mega-menu d-lg-none" id="closeMegaMenu">
+                  <i class="fas fa-times"></i>
+                </button>
+                <div class="mega-inner">
+                  <div class="vertical-tabs" id="verticalTabs">
+                    <button class="tab-vertical" data-tab="tab1">
+                      <span>Company</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab2">
+                      <span>Terms & Privacy</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab3">
+                      <span>Locations</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="tab-content-area" id="tabContentArea">
+                    <button class="back-button" id="backButton">
+                      <i class="fas fa-arrow-left"></i>
+                      <span>Back to Categories</span>
+                    </button>
+
+                    <div class="tab-pane-vertical" id="tab-tab1">
+                      <div class="section-heading">Company</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-chart-line"></i> About Cetbix</a></div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab2">
+                      <div class="section-heading">Terms & Privacy</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Refund & cancellation Policy</a>
+                        </div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Trademark and usage</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Imprint</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Data Privacy</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Terms and Conditions</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> GDPR Privacy Policy</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Cookie policy</a></div>
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> Website Disclaimer</a></div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab3">
+                      <div class="section-heading">Locations</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> Our Locations</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item mega-menu-vertical">
+              <a class="nav-link" href="#" id="productsLink">
+                Services <i class="fas fa-chevron-down"></i>
+              </a>
+
+              <div class="mega-dropdown-vertical" id="megaDropdown">
+                <button class="close-mega-menu d-lg-none" id="closeMegaMenu">
+                  <i class="fas fa-times"></i>
+                </button>
+                <div class="mega-inner">
+                  <div class="vertical-tabs" id="verticalTabs">
+                    <button class="tab-vertical" data-tab="tab1">
+                      <span>Penetration Testing</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab2">
+                      <span>Certification</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="tab-content-area" id="tabContentArea">
+                    <button class="back-button" id="backButton">
+                      <i class="fas fa-arrow-left"></i>
+                      <span>Back to Categories</span>
+                    </button>
+
+                    <div class="tab-pane-vertical" id="tab-tab1">
+                      <div class="section-heading">Penetration</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-chart-line"></i> Penetration Testing</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab2">
+                      <div class="section-heading">Certification</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> ISO27001 Certification
+                            Consultancy</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item mega-menu-vertical">
+              <a class="nav-link" href="#" id="productsLink">
+                Shop <i class="fas fa-chevron-down"></i>
+              </a>
+
+              <div class="mega-dropdown-vertical" id="megaDropdown">
+                <button class="close-mega-menu d-lg-none" id="closeMegaMenu">
+                  <i class="fas fa-times"></i>
+                </button>
+                <div class="mega-inner">
+                  <div class="vertical-tabs" id="verticalTabs">
+                    <button class="tab-vertical" data-tab="tab1">
+                      <span>Home Product</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab2">
+                      <span>Medium Enterprise</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="tab-vertical" data-tab="tab3">
+                      <span>Large Enterprsie</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="tab-content-area" id="tabContentArea">
+                    <button class="back-button" id="backButton">
+                      <i class="fas fa-arrow-left"></i>
+                      <span>Back to Categories</span>
+                    </button>
+
+                    <div class="tab-pane-vertical" id="tab-tab1">
+                      <div class="section-heading">Home Product</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-chart-line"></i> No content available</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab2">
+                      <div class="section-heading">Medium Enterprise</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fab fa-aws"></i> No content available</a></div>
+                      </div>
+                    </div>
+                    <div class="tab-pane-vertical" id="tab-tab3">
+                      <div class="section-heading">Large Enterprsie</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-code"></i> No content available</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item mega-menu-vertical">
+              <a class="nav-link" href="#" id="productsLink">
+                Training & Certification <i class="fas fa-chevron-down"></i>
+              </a>
+
+              <div class="mega-dropdown-vertical" id="megaDropdown">
+                <button class="close-mega-menu d-lg-none" id="closeMegaMenu">
+                  <i class="fas fa-times"></i>
+                </button>
+                <div class="mega-inner">
+                  <div class="vertical-tabs" id="verticalTabs">
+                    <button class="tab-vertical" data-tab="tab1">
+                      <span>Cetbix Professional Certificate</span>
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <div class="tab-content-area" id="tabContentArea">
+                    <button class="back-button" id="backButton">
+                      <i class="fas fa-arrow-left"></i>
+                      <span>Back to Categories</span>
+                    </button>
+
+                    <div class="tab-pane-vertical" id="tab-tab1">
+                      <div class="section-heading">Cetbix Professional Certificate</div>
+                      <div class="links-grid">
+                        <div class="link-item"><a href="#"><i class="fas fa-chart-line"></i> Cetbix GRC Professional
+                            Certificate</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="search-icon d-none d-lg-flex align-items-center justify-content-center ms-2 rounded-3">
+            <i class="fas fa-search"></i>
+          </div>
+
+          <div class="mobile-only-menu-items d-lg-none">
+            <div class="mobile-divider"></div>
+            <a href="#" class="mobile-action-link"><i class="fas fa-download"></i><span>Downloads</span></a>
+            <a href="#" class="mobile-action-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <div class="dropdown mobile-dropdown mt-2">
+              <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                <i class="fas fa-globe me-2"></i>English
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">English</a></li>
+                <li><a class="dropdown-item" href="#">Deutsch</a></li>
+              </ul>
+            </div>
+            <div class="dropdown mobile-dropdown mt-2">
+              <button class="dropdown-toggle mobile-techsec-btn" type="button" data-bs-toggle="dropdown">
+                <span><i class="fas fa-shield-alt me-2"></i>Techsec</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Account</a></li>
+                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ========== LOGIN SECTION (LIGHT & CLEAN) ========== -->
+  <div class="login-section">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Left: Sign In Form -->
+        <div class="col-lg-6">
+          <div class="login-card">
+            <div class="badge-secure">
+              <i class="fas fa-lock"></i> SECURE ACCESS
+            </div>
+            <h1 class="login-title">Welcome back</h1>
+            <p class="login-subtitle">Sign in to access your dashboard, licenses, and resources</p>
+
+            <form id="loginForm">
+              <div class="form-group">
+                <label class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" class="form-input" id="emailInput" value="demo@xvex.de"
+                  placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" class="form-input" id="passwordInput" placeholder="Enter your password">
+              </div>
+              <div class="form-options">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" checked> <span>Keep me signed in</span>
+                </label>
+                <a href="#" class="forgot-link" id="restoreAccessBtn"><i class="fas fa-key"></i> Restore access →</a>
+              </div>
+              <button type="submit" class="btn-signin">
+                <i class="fas fa-arrow-right-to-bracket"></i> SIGN IN
+              </button>
+              <div class="divider">OR</div>
+              <button type="button" id="azureLoginBtn" class="btn-azure">
+                <i class="fab fa-microsoft"></i> Login with Azure AD
+              </button>
+            </form>
+
+            <div class="signup-prompt">
+              New user? <a href="#" id="signupLink"><strong>Create your account →</strong></a>
+              <div class="signup-note">Get free downloads, whitepapers & manage licenses</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Benefits Panel -->
+        <div class="col-lg-6">
+          <div class="benefits-card">
+            <div class="badge-exclusive">
+              <i class="fas fa-gem"></i> EXCLUSIVE ACCESS
+            </div>
+            <h2 class="benefits-title">Unlock full potential</h2>
+
+            <ul class="feature-list">
+              <li class="feature-item"><i class="fas fa-download"></i> Products downloads: free & paid tools</li>
+              <li class="feature-item"><i class="fas fa-file-alt"></i> Resources: whitepapers, videos, webinars</li>
+              <li class="feature-item"><i class="fas fa-ticket-alt"></i> Manage license keys & support tickets</li>
+              <li class="feature-item"><i class="fas fa-chart-line"></i> GRC dashboards & ISO27001 toolkits</li>
+              <li class="feature-item"><i class="fas fa-shield-haltered"></i> AI-driven compliance automation</li>
+            </ul>
+
+            <div class="highlight-card">
+              <i class="fas fa-chart-simple" style="color:#c62828;"></i>
+              <strong> Cetbix Red Suite</strong>
+              <p style="margin-top: 8px; font-size: 0.8rem; color: #475569;">Real-time risk intelligence, TISAX
+                assessments, vendor management — all with enterprise-grade security.</p>
+            </div>
+
+            <div class="trust-badge">
+              <i class="fas fa-star"></i> Trusted by 500+ enterprises | 96% automation rate
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUBSCRIBE SECTION (Full Width, Dark) ===== -->
+  <section class="subscribe-section">
+    <div class="container">
+      <div class="subscribe-wrapper bottom">
+        <div class="subscribe-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <h2 class="subscribe-title">Subscribe for updates:</h2>
+        <p class="subscribe-desc">Learn more about the Cetbix our new products and news. You can unsubscribe from the
+          newsletter at any time.</p>
+        <form id="subscribeForm" class="subscribe-form">
+          <input type="email" class="subscribe-input" placeholder="Your email address" required>
+          <button type="submit" class="subscribe-btn" id="subscribeBtn">Subscribe <i
+              class="fas fa-arrow-right ms-2"></i></button>
+        </form>
+        <div class="checkbox-container">
+          <input type="checkbox" id="privacyCheckbox">
+          <label for="privacyCheckbox">By submitting my personal data to Cetbix, I agree to the <a href="#">privacy
+              policy</a> of Cetbix Limited.</label>
+        </div>
+        <div id="errorMessage" class="error-message"><i class="fas fa-exclamation-circle me-2"></i> Please agree to
+          the
+          privacy policy to continue.</div>
+        <div id="successMessage" class="success-message"><i class="fas fa-check-circle me-2"></i> Thank you for
+          subscribing! Please check your email to confirm.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== PROPERLY ALIGNED STRONG FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <!-- Column 1: Company -->
+        <div class="col-lg-2 col-md-4 col-6 bottom-stagger">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Cetbix</a></li>
+            <li><a href="#">Become a Partner</a></li>
+            <li><a href="#">Technical Organization Measures</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Services -->
+        <div class="col-lg-2 col-md-4 col-6 bottom-stagger">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Penetration testing</a></li>
+            <li><a href="#">Security auditing</a></li>
+            <li><a href="#">ISO27001 Certification Consultancy</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Terms & Privacy -->
+        <div class="col-lg-2 col-md-4 col-6 bottom-stagger">
+          <h4 class="footer-heading">Terms &amp; Privacy</h4>
+          <ul class="footer-links">
+            <li><a href="#">Imprint</a></li>
+            <li><a href="#">Data Privacy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">GDPR Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Website Disclaimer</a></li>
+            <li><a href="#">Trademark and usage</a></li>
+            <li><a href="#">Refund & cancellation Policy</a></li>
+            <li><a href="#">Brexit to Cetbix</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Products -->
+        <div class="col-lg-2 col-md-4 col-6 bottom-stagger">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="#">Cetbix Data Inventory</a></li>
+            <li><a href="#">Cetbix GRC Software</a></li>
+            <li><a href="#">Cetbix Sentinel</a></li>
+            <li><a href="#">Cetbix Windows Manager For Professionals</a></li>
+            <li><a href="#">Cetbix Document Management (CetbixDoc)</a></li>
+            <li><a href="#">Cetbix Learning Management System</a></li>
+            <li><a href="#">Fleet Management System</a></li>
+            <li><a href="#">Cetbix ISO27001 ISMS Software</a></li>
+            <li><a href="#">Cetbix TISAX Assessment</a></li>
+            <li><a href="#">Cetbix Audit Intelligence Suite</a></li>
+            <li><a href="#">Cetbix Classify360</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Knowledge Base -->
+        <div class="col-lg-2 col-md-4 col-6 bottom-stagger">
+          <h4 class="footer-heading">Knowledge Base</h4>
+          <ul class="footer-links">
+            <li><a href="#">What is Software as a Service (SaaS)?</a></li>
+            <li><a href="#">ISMS online</a></li>
+            <li><a href="#">ISMS Software</a></li>
+            <li><a href="#">Wikipedia</a></li>
+            <li><a href="#">2025 GRC Rankings</a></li>
+            <li><a href="#">Why Cetbix GRC?</a></li>
+            <li><a href="#">NIS2</a></li>
+            <li><a href="#">2026 GRC Rankings</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">ISO27001 GRC Software</a></li>
+            <li><a href="#">Cetbix Pricing</a></li>
+            <li><a href="#">GRC Software Comparison Guide Page</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 6: Location -->
+        <div class="col-lg-2 col-md-4 col-6 bottom-stagger">
+          <h4 class="footer-heading">Location</h4>
+          <div class="location-text">
+            <p>We are located in the heart of London and Dublin</p>
+            <strong>London Office</strong><br>
+            128 City Road,<br>
+            Greater London EC1V 2NX<br>
+            Tel: +44 20 4578 1552
+          </div>
+          <div class="location-text mt-3">
+            <strong>Ireland Office</strong><br>
+            103 North Circular,<br>
+            Dublin - Ireland<br>
+            Tel: +44 20 4578 1552
+          </div>
+          <div class="office-hours">Office Hours:</div>
+          <div class="location-text">Mon-Fri: 09:00 - 17:00 GMT</div>
+          <div class="office-hours">24/7 Support</div>
+        </div>
+
+      </div>
+
+      <div
+        class="d-flex align-items-center justify-content-sm-between justify-content-center flex-sm-row flex-column bottom-stagger">
+        <!-- Social Icons -->
+        <div class="footer-social">
+          <a href="#" class="social-icon text-decoration-none"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon text-decoration-none"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon text-decoration-none"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon text-decoration-none"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <!-- Partner Logos -->
+        <div class="footer-partners">
+          <img src="images/CetbixAsset.png" alt="Cetbix" class="partner-logo">
+          <img src="images/CetbixAssetSmall.png" alt="Cetbix LTD" class="partner-logo">
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        Copyright © 2026 all rights reserved - Cetbix LTD® - Registrar of Companies for England and Wales - No: 11787688
+        - <a href="#">Privacy Policy &amp; Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showMessage(msg, isError = false) {
+      let toast = document.createElement('div');
+      toast.innerText = msg;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '25px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = isError ? '#b71c1c' : '#c62828';
+      toast.style.color = 'white';
+      toast.style.padding = '12px 28px';
+      toast.style.borderRadius = '60px';
+      toast.style.fontWeight = '500';
+      toast.style.zIndex = '9999';
+      toast.style.fontFamily = "'Inter', sans-serif";
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2800);
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value;
+      if (!email) { showMessage('⚠️ Please enter your email address', true); return; }
+      if (!password) { showMessage('🔐 Password required', true); return; }
+      showMessage(`✅ Welcome back ${email.split('@')[0]}! Redirecting to dashboard...`);
+    });
+
+    document.getElementById('azureLoginBtn').addEventListener('click', () => {
+      showMessage('🔐 Azure AD SSO — Redirecting to corporate login');
+    });
+
+    document.getElementById('subscribeBtn').addEventListener('click', () => {
+      const email = document.getElementById('newsEmail').value.trim();
+      if (!email || !email.includes('@')) { showMessage('📧 Valid email required', true); return; }
+      showMessage(`🎉 Subscribed! ${email} will receive updates.`);
+      document.getElementById('newsEmail').value = '';
+    });
+
+    document.getElementById('restoreAccessBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      showMessage('🔁 Reset link sent to your registered email');
+    });
+
+    document.getElementById('signupLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      showMessage('✨ Create free account to unlock downloads & whitepapers!');
+    });
+  </script>
+
+
+  <script>
+    // Mobile menu scroll lock
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   const navbarToggler = document.querySelector('.navbar-toggler');
+    //   const navbarCollapse = document.querySelector('#navbarMain');
+
+    //   if (navbarToggler && navbarCollapse) {
+    //     navbarToggler.addEventListener('click', function () {
+    //       setTimeout(function () {
+    //         if (navbarCollapse.classList.contains('show')) {
+    //           document.body.classList.add('menu-open');
+    //         } else {
+    //           document.body.classList.remove('menu-open');
+    //         }
+    //       }, 10);
+    //     });
+    //   }
+    // });
+
+    // Accordion Toggle Function
+    function toggleAccordion(element) {
+      const accordionItem = element.closest('.accordion-item-custom');
+      const isActive = accordionItem.classList.contains('active');
+
+      // Close all accordion items (optional - set to true if you want only one open at a time)
+      // For multiple open, remove this loop
+      document.querySelectorAll('.accordion-item-custom').forEach(item => {
+        if (item !== accordionItem) {
+          item.classList.remove('active');
+        }
+      });
+
+      // Toggle current item
+      accordionItem.classList.toggle('active');
+    }
+
+    // =========================
+    // Reusable Swiper Function
+    // =========================
+
+    function createSwiper(selector, config = {}) {
+      return new Swiper(selector, {
+
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        loopAdditionalSlides: 5, // ✅ IMPORTANT
+        loopFillGroupWithBlank: true, // ✅ stability
+
+        // ❌ AUTOPLAY OFF (GLOBAL)
+        autoplay: false,
+
+        pagination: {
+          el: `${selector} .swiper-pagination`,
+          clickable: true,
+        },
+
+        navigation: {
+          nextEl: `${selector} .swiper-button-next`,
+          prevEl: `${selector} .swiper-button-prev`,
+        },
+
+        breakpoints: {
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        },
+
+        ...config
+      });
+    }
+    // =========================
+    // Featured Swiper
+    // =========================
+    createSwiper('.featured-swiper', {
+      speed: 1200,
+      autoplay: false, // extra safety
+      navigation: {
+        nextEl: '.featured-swiper .swiper-button-next',
+        prevEl: '.featured-swiper .swiper-button-prev',
+      }
+    });
+
+    // =========================
+    // Solutions Swiper
+    // =========================
+    createSwiper('.solutions-swiper', {
+      autoplay: false,
+      navigation: {
+        nextEl: '.solutions-swiper .swiper-button-next',
+        prevEl: '.solutions-swiper .swiper-button-prev',
+      }
+    });
+
+
+
+
+    // Toggle individual solution card
+    function toggleCard(card) {
+      card.classList.toggle('expanded');
+      const icon = card.querySelector('.expand-icon i');
+      if (card.classList.contains('expanded')) {
+        icon.classList.remove('fa-plus');
+        icon.classList.add('fa-minus');
+      } else {
+        icon.classList.remove('fa-minus');
+        icon.classList.add('fa-plus');
+      }
+    }
+
+
+    // Testimonial script
+    let currentIndex = 0;
+    const totalItems = document.querySelectorAll('.testimonial-item').length;
+    const textItems = document.querySelectorAll('.testimonial-item');
+    const imageItems = document.querySelectorAll('.image-item');
+    const prevArrow = document.getElementById('prevArrow');
+    const nextArrow = document.getElementById('nextArrow');
+
+    function showTestimonial(index) {
+      // Hide all text items
+      textItems.forEach(item => {
+        item.classList.remove('active');
+      });
+      // Hide all image items
+      imageItems.forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Show current items
+      textItems[index].classList.add('active');
+      imageItems[index].classList.add('active');
+    }
+
+    function nextTestimonial() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      showTestimonial(currentIndex);
+    }
+
+    function prevTestimonial() {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      showTestimonial(currentIndex);
+    }
+
+    // Event listeners
+    nextArrow.addEventListener('click', nextTestimonial);
+    prevArrow.addEventListener('click', prevTestimonial);
+
+    // Auto-play every 6 seconds
+    let autoPlayInterval = setInterval(nextTestimonial, 6000);
+
+    // Pause autoplay on hover
+    const testimonialSection = document.querySelector('.testimonial-side-section');
+    testimonialSection.addEventListener('mouseenter', () => {
+      clearInterval(autoPlayInterval);
+    });
+    testimonialSection.addEventListener('mouseleave', () => {
+      autoPlayInterval = setInterval(nextTestimonial, 6000);
+    });
+
+    // Vertical Slider Script
+    // Initialize Vertical Features Swiper
+    const featuresSwiper = new Swiper('.features-vertical-swiper', {
+      direction: 'vertical',
+      slidesPerView: 3,
+      spaceBetween: 20,
+      centeredSlides: true,
+      loop: true,
+      autoplay: false,
+      //  {
+      //   delay: 4000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true,
+      // },
+      navigation: {
+        nextEl: '.swiper-button-next-custom',
+        prevEl: '.swiper-button-prev-custom',
+      },
+      speed: 500,
+      breakpoints: {
+        320: {
+          slidesPerView: 1.5,
+          spaceBetween: 15,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2.5,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 0,
+        },
+      },
+    });
+
+
+    // Mega Menu Script
+    // Vertical Tabs functionality
+    document.querySelectorAll('.tab-vertical').forEach(tab => {
+      tab.addEventListener('click', function () {
+        const tabId = this.getAttribute('data-tab');
+        const container = this.closest('.mega-inner');
+
+        // Remove active class from all tabs in this container
+        container.querySelectorAll('.tab-vertical').forEach(t => t.classList.remove('active'));
+        // Remove active class from all panes in this container
+        container.querySelectorAll('.tab-pane-vertical').forEach(p => p.classList.remove('active'));
+
+        // Add active class to current tab
+        this.classList.add('active');
+        // Add active class to corresponding pane
+        container.querySelector(`#tab-${tabId}`).classList.add('active');
+      });
+    });
+
+  </script>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <script>
+    // Check if mobile
+    const isMobile = window.innerWidth < 992;
+
+    // Mobile-specific configuration
+    const sr = ScrollReveal({
+      distance: isMobile ? '30px' : '50px',
+      duration: 800,
+      easing: 'ease-in-out',
+      reset: false,
+      viewFactor: 0.3
+    });
+
+    if (isMobile) {
+      // MOBILE: Sabhi animations bottom se honge (no left/right to avoid overflow)
+      sr.reveal('.top', { origin: 'bottom' });
+      sr.reveal('.bottom', { origin: 'bottom' });
+      sr.reveal('.left', { origin: 'bottom' });    // Left wala bhi bottom se
+      sr.reveal('.right', { origin: 'bottom' });   // Right wala bhi bottom se
+      sr.reveal('.bottom-stagger', {
+        origin: 'bottom',
+        interval: 150
+      });
+
+      // Extra: Stagger for all elements on mobile
+      sr.reveal('.row > [class*="col-"]', {
+        origin: 'bottom',
+        interval: 100,
+        distance: '20px'
+      });
+    } else {
+      // DESKTOP: Original behaviour (left/right intact)
+      sr.reveal('.top', { origin: 'top' });
+      sr.reveal('.bottom', { origin: 'bottom' });
+      sr.reveal('.left', { origin: 'left' });
+      sr.reveal('.right', { origin: 'right' });
+      sr.reveal('.bottom-stagger', {
+        origin: 'bottom',
+        interval: 200
+      });
+    }
+  </script>
+
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+  <script>
+    // Universal Mega Menu Handler - Ek function sab menus ke liye kaam karega
+    function initMegaMenu(menuItem, megaDropdown) {
+      const tabs = megaDropdown.querySelectorAll('.tab-vertical');
+      const panes = megaDropdown.querySelectorAll('.tab-pane-vertical');
+      const backBtn = megaDropdown.querySelector('.back-button');
+      const closeBtn = megaDropdown.querySelector('.close-mega-menu');
+      const verticalTabsDiv = megaDropdown.querySelector('.vertical-tabs');
+      const tabContentArea = megaDropdown.querySelector('.tab-content-area');
+
+      // By default pehla tab active karo
+      if (tabs.length > 0) {
+        tabs[0].classList.add('active');
+        if (panes[0]) {
+          panes[0].classList.add('active');
+          if (window.innerWidth >= 992) {
+            panes[0].style.display = 'block';
+          }
+        }
+      }
+
+      // Menu click - Mobile mein open/close
+      menuItem.addEventListener('click', function (e) {
+        if (window.innerWidth < 992) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Agar already open hai toh close karo
+          if (megaDropdown.classList.contains('show-mobile')) {
+            megaDropdown.classList.remove('show-mobile');
+            document.body.style.overflow = '';
+          } else {
+            // Doosre open menus ko close karo
+            document.querySelectorAll('.mega-dropdown-vertical.show-mobile').forEach(drop => {
+              drop.classList.remove('show-mobile');
+            });
+            megaDropdown.classList.add('show-mobile');
+            document.body.style.overflow = 'hidden';
+            if (verticalTabsDiv) verticalTabsDiv.style.display = 'flex';
+            if (tabContentArea) tabContentArea.classList.remove('show-content');
+          }
+        } else {
+          e.preventDefault();
+        }
+      });
+
+      // Close button
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          megaDropdown.classList.remove('show-mobile');
+          document.body.style.overflow = '';
+        });
+      }
+
+      // Tab click - Content change karo
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const tabId = this.getAttribute('data-tab');
+          const targetPane = megaDropdown.querySelector(`#tab-${tabId}`);
+
+          if (window.innerWidth < 992) {
+            // Mobile: content area dikhao
+            if (verticalTabsDiv) verticalTabsDiv.style.display = 'none';
+            if (tabContentArea) tabContentArea.classList.add('show-content');
+
+            // Saare panes hide karo
+            panes.forEach(pane => {
+              pane.classList.remove('active');
+              pane.style.display = 'none';
+            });
+
+            // Selected pane dikhao
+            if (targetPane) {
+              targetPane.classList.add('active');
+              targetPane.style.display = 'block';
+            }
+
+            // Active tab highlight karo
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+          } else {
+            // Desktop: saare panes hide, selected dikhao
+            tabs.forEach(t => t.classList.remove('active'));
+            panes.forEach(p => {
+              p.classList.remove('active');
+              p.style.display = 'none';
+            });
+            this.classList.add('active');
+            if (targetPane) {
+              targetPane.classList.add('active');
+              targetPane.style.display = 'block';
+            }
+          }
+        });
+      });
+
+      // Back button - Wapas tabs list mein jao
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          if (window.innerWidth < 992) {
+            if (tabContentArea) tabContentArea.classList.remove('show-content');
+            if (verticalTabsDiv) verticalTabsDiv.style.display = 'flex';
+            panes.forEach(pane => {
+              pane.classList.remove('active');
+              pane.style.display = 'none';
+            });
+          }
+        });
+      }
+
+      // Outside click se close
+      document.addEventListener('click', function (e) {
+        if (window.innerWidth < 992 && megaDropdown.classList.contains('show-mobile')) {
+          if (!menuItem.contains(e.target) && !megaDropdown.contains(e.target)) {
+            megaDropdown.classList.remove('show-mobile');
+            document.body.style.overflow = '';
+          }
+        }
+      });
+    }
+
+    // Sab menus ko initialize karo
+    document.querySelectorAll('.mega-menu-vertical').forEach(menu => {
+      const menuLink = menu.querySelector('.nav-link');
+      const megaDropdown = menu.querySelector('.mega-dropdown-vertical');
+      if (menuLink && megaDropdown) {
+        initMegaMenu(menuLink, megaDropdown);
+      }
+    });
+
+    // Window resize par mobile view reset
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 992) {
+        document.querySelectorAll('.mega-dropdown-vertical.show-mobile').forEach(drop => {
+          drop.classList.remove('show-mobile');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+
+</html>
